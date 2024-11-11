@@ -30,3 +30,15 @@ SET full_name  = UPPER(full_name);
 UPDATE club_member_info_cleaned 
 SET full_name  = TRIM(full_name);
 ```
+### Age out of realistic range
+```sql
+SELECT  COUNT(*) FROM club_member_info_cleaned cmic 
+WHERE age < 18 OR age > 90 OR age ISNULL ;
+```
+### Remove Age is Null
+```sql
+UPDATE club_member_info_cleaned 
+SET age = (SELECT MODE(age) FROM	club_member_info_cleaned )
+WHERE age < 18 OR age > 90 OR age ISNULL
+```
+
