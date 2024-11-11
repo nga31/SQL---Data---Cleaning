@@ -38,7 +38,7 @@ WHERE age < 18 OR age > 90 OR age ISNULL ;
 ### Remove Age is Null
 ```sql
 UPDATE club_member_info_cleaned 
-SET age = (SELECT MODE(age) FROM	club_member_info_cleaned )
-WHERE age < 18 OR age > 90 OR age ISNULL
+SET age = (SELECT MODE(age) FROM club_member_info_cleaned )
+WHERE age < 18 OR age > 90 OR age ISNULL;
 ```
 
